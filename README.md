@@ -23,7 +23,8 @@ A fully self-contained React component for **Sanitary.pk**, a premium architectu
 ---
 
 ## Getting Started
-![Uploading image.png…]()
+<img width="1918" height="911" alt="image" src="https://github.com/user-attachments/assets/b02f16b8-fb1d-44b8-a053-1991a362a4c6" />
+
 
 ### Prerequisites
 
