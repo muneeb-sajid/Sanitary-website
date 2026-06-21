@@ -23,6 +23,7 @@ A fully self-contained React component for **Sanitary.pk**, a premium architectu
 ---
 
 ## Getting Started
+![Uploading image.png…]()
 
 ### Prerequisites
 
