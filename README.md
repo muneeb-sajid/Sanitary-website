@@ -199,17 +199,10 @@ Works in all modern browsers that support:
 
 ---
 
-## Project Info
 
-| Field | Value |
-|---|---|
-| **Brand** | Sanitary.pk |
-| **Category** | E-commerce / Luxury Hardware |
-| **Market** | Pakistan |
-| **Currency** | PKR (Pakistani Rupee) |
-| **Founded** | 1998 (per footer copy) |
-| **Contact** | sales@sanitary.pk |
-| **Location** | Plot 123-B, Main Ferozepur Road, Lahore |
+
+
+
 
 ---
 
