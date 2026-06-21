@@ -94,31 +94,25 @@ const categories = [
   },
   {
     name: "Kitchen Sinks", count: "60+ Options",
-    img: "https://lh3.googleusercontent.com/aida-public/AB6AXuCY-q41CO7mkqXT-Ps7ri8lDLqCDF2rpgSimu32vl562342oLrSBaFhoqbJdXBSKqwjJZtjKjNQSdAeiqOIUJm3lCzimgYT0uZAYjjxnaFuypAsz2mbZN0fd11U8d4OPpqEYS-53zszAraMhNCGiq45T9StQkIPz-tngc_xie7PULScpQ9-ALa3wB-h4_LiUaszOmCriuUnOa2qFhNuIdFk52-fQT1ZE2X9iqZ-dEtLelftDLHmJf7vp-2yTZ08NHrqlMVX85y5FGs",
+    img: "https://lh3.googleusercontent.com/aida-public/AB6AXuCY-q41CO7mkqXT-Ps7ri8lDLqCDF2rpgSimu32vl562342oLrSBaFhoqbJdXBSKqwjJZtjKjNQSdAeiqOIUJm3lCzimgYT0uZAYjjxnaFuypAsz2mbZN0fd11U8v4OPpqEYS-53zszAraMhNCGiq45T9StQkIPz-tngc_xie7PULScpQ9-ALa3wB-h4_LiUaszOmCriuUnOa2qFhNuIdFk52-fQT1ZE2X9iqZ-dEtLelftDLHmJf7vp-2yTZ08NHrqlMVX85y5FGs",
     path: "/category/kitchen"
   },
 ];
 
-const brands = ["GROHE", "TOTO", "KOHLER", "ROCA"];
+const brands = ["GROHE", "TOTO", "KOHLER", "ROCA", "PORTA", "FAISAL", "SONEX", "AMERICAN STANDARD"];
 
 const reviews = [
   {
-    initials: "SA",
-    name: "Sadia Arshad",
-    role: "Interior Designer",
-    text: "Sanitary.pk delivered premium fixtures quickly and helped us finish our showroom project on schedule."
+    initials: "AS", name: "Ahmed Salman", role: "Homeowner, Lahore",
+    text: '"The quality of the GROHE fixtures I bought for my DHA home exceeded my expectations. Sanitary.pk handled the delivery with extreme care. Highly recommended!"'
   },
   {
-    initials: "NM",
-    name: "Naveed Malik",
-    role: "Luxury Villa Owner",
-    text: "The quality and service were outstanding — every product arrived exactly as promised with expert guidance."
+    initials: "ZF", name: "Zainab Fatima", role: "Interior Designer, Karachi",
+    text: '"As an architect, I need reliability. Their technical support team helped me finalize the concealed fittings for a high-rise project effortlessly."'
   },
   {
-    initials: "TZ",
-    name: "Tanzeel Zafar",
-    role: "Hospitality Consultant",
-    text: "Their team made specifying high-end sanitaryware easy, with dependable stock and fast support throughout the build."
+    initials: "RK", name: "Rizwan Khan", role: "Developer, Islamabad",
+    text: '"Excellent collection of TOTO sanitary ware. The prices are very competitive compared to physical showrooms, and the original warranty is a huge plus."'
   },
 ];
 
@@ -133,31 +127,31 @@ export default function SanitaryPK() {
       <style>{styles}</style>
 
       {/* Hero */}
-      <section style={{ position: "relative", width: "100%", height: 700, overflow: "hidden", display: "flex", alignItems: "center" }}>
+      <section style={{ position: "relative", width: "100%", minHeight: "clamp(400px, 80vh, 700px)", overflow: "hidden", display: "flex", alignItems: "center" }}>
         <div style={{
           position: "absolute", inset: 0,
           backgroundImage: "url('https://lh3.googleusercontent.com/aida-public/AB6AXuDK4VLcqS9A2mNaC80lx1CevbsKB-WSwgIWXXEhY83FMMsv-2fr7mcDqB8tI3zSJbTmtYEI7l4AujUCpZovnDycW4wyQNotjWM7mL5Z6-DqaiTzCVAUAO9tdxEFyJ0AKFKPqiH_FGP_KXlJ1zQMbIar5AFXKmZPBLimQtkP8sdmsbhvkvy_gImY62NHL7K5kyt8GZ4I_cQHDrlUf-WIpMxKjb3FM8pAxSocMlM9qrC9XSuedc6ZvyMb_Wl8ku0xSkxPO_ZnBpIJbk4')",
           backgroundSize: "cover", backgroundPosition: "center"
         }} />
         <div style={{ position: "absolute", inset: 0, background: "rgba(0,38,69,0.45)" }} />
-        <div style={{ position: "relative", zIndex: 1, maxWidth: 1280, margin: "0 auto", padding: "0 24px", width: "100%" }}>
-          <div style={{ maxWidth: 600 }}>
-            <span style={{ fontFamily: "Inter", fontSize: 11, fontWeight: 600, letterSpacing: "0.1em", textTransform: "uppercase", color: "#fff", display: "block", marginBottom: 16 }}>
+        <div style={{ position: "relative", zIndex: 1, maxWidth: "1280px", margin: "0 auto", padding: "clamp(16px, 5vw, 24px)", width: "100%" }}>
+          <div style={{ maxWidth: "100%", paddingRight: "clamp(0px, 5vw, 300px)" }}>
+            <span style={{ fontFamily: "Inter", fontSize: "clamp(9px, 2vw, 11px)", fontWeight: 600, letterSpacing: "0.1em", textTransform: "uppercase", color: "#fff", display: "block", marginBottom: "clamp(12px, 2vw, 16px)" }}>
               Excellence in Hardware
             </span>
-            <h1 style={{ fontFamily: "'Playfair Display', serif", fontSize: "clamp(36px, 5vw, 56px)", fontWeight: 700, color: "#fff", lineHeight: 1.2, marginBottom: 24 }}>
+            <h1 style={{ fontFamily: "'Playfair Display', serif", fontSize: "clamp(28px, 7vw, 56px)", fontWeight: 700, color: "#fff", lineHeight: 1.2, marginBottom: "clamp(16px, 3vw, 24px)" }}>
               Elevate Every Bathroom &amp; Kitchen
             </h1>
-            <p style={{ fontFamily: "Inter", fontSize: 16, color: "rgba(255,255,255,0.9)", marginBottom: 40, maxWidth: 500, lineHeight: 1.7 }}>
+            <p style={{ fontFamily: "Inter", fontSize: "clamp(14px, 3vw, 16px)", color: "rgba(255,255,255,0.9)", marginBottom: "clamp(24px, 5vw, 40px)", maxWidth: "100%", lineHeight: 1.7 }}>
               Discover our curated collection of architectural sanitary ware. From timeless brass faucets to contemporary minimalist toilets, we define the luxury standard for Pakistani homes.
             </p>
-            <div style={{ display: "flex", gap: 16, flexWrap: "wrap" }}>
-              <Link to="/category/faucets" style={{ background: colors.primary, color: "#fff", padding: "14px 40px", border: "none", borderRadius: 4, fontFamily: "Inter", fontSize: 14, fontWeight: 500, cursor: "pointer", textDecoration: "none", transition: "all 0.2s", display: "inline-flex", alignItems: "center", justifyContent: "center" }}
+            <div style={{ display: "flex", gap: "clamp(8px, 2vw, 16px)", flexWrap: "wrap" }}>
+              <Link to="/category/faucets" style={{ background: colors.primary, color: "#fff", padding: "clamp(10px, 2vw, 14px) clamp(20px, 4vw, 40px)", border: "none", borderRadius: 4, fontFamily: "Inter", fontSize: "clamp(12px, 2vw, 14px)", fontWeight: 500, cursor: "pointer", transition: "all 0.2s", display: "inline-flex", alignItems: "center", justifyContent: "center", textDecoration: "none" }}
                 onMouseEnter={e => e.currentTarget.style.background = colors.secondary}
                 onMouseLeave={e => e.currentTarget.style.background = colors.primary}>
                 Shop Collection
               </Link>
-              <Link to="/brands" style={{ background: "transparent", color: "#fff", padding: "14px 40px", border: "2px solid #fff", borderRadius: 4, fontFamily: "Inter", fontSize: 14, fontWeight: 500, cursor: "pointer", textDecoration: "none", transition: "all 0.2s", display: "inline-flex", alignItems: "center", justifyContent: "center" }}
+              <Link to="/brands" style={{ background: "transparent", color: "#fff", padding: "clamp(10px, 2vw, 14px) clamp(20px, 4vw, 40px)", border: "2px solid #fff", borderRadius: 4, fontFamily: "Inter", fontSize: "clamp(12px, 2vw, 14px)", fontWeight: 500, cursor: "pointer", transition: "all 0.2s", display: "inline-flex", alignItems: "center", justifyContent: "center", textDecoration: "none" }}
                 onMouseEnter={e => { e.currentTarget.style.background = "#fff"; e.currentTarget.style.color = colors.primary; }}
                 onMouseLeave={e => { e.currentTarget.style.background = "transparent"; e.currentTarget.style.color = "#fff"; }}>
                 Explore Brands
@@ -168,9 +162,9 @@ export default function SanitaryPK() {
       </section>
 
       {/* Trust Badges */}
-      <section style={{ background: "#f6f3f2", padding: "40px 0" }}>
-        <div style={{ maxWidth: 1280, margin: "0 auto", padding: "0 24px" }}>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))", gap: 24 }}>
+      <section style={{ background: "#f6f3f2", padding: "clamp(24px, 8vw, 40px) 0" }}>
+        <div style={{ maxWidth: "1280px", margin: "0 auto", padding: "0 clamp(12px, 5vw, 24px)" }}>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(160px, 1fr))", gap: "clamp(12px, 3vw, 24px)" }}>
             {[
               { icon: "local_shipping", title: "Free Delivery", desc: "On orders over PKR 25,000" },
               { icon: "verified", title: "100% Genuine", desc: "Authorized brand partners" },
@@ -190,18 +184,18 @@ export default function SanitaryPK() {
       </section>
 
       {/* Categories */}
-      <section style={{ padding: "64px 0" }}>
-        <div style={{ maxWidth: 1280, margin: "0 auto", padding: "0 24px" }}>
-          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", marginBottom: 40 }}>
+      <section style={{ padding: "clamp(40px, 10vw, 64px) 0" }}>
+        <div style={{ maxWidth: "1280px", margin: "0 auto", padding: "0 clamp(12px, 5vw, 24px)" }}>
+          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", marginBottom: "clamp(24px, 5vw, 40px)", flexWrap: "wrap", gap: "clamp(12px, 3vw, 20px)" }}>
             <div>
-              <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: 32, fontWeight: 700, color: colors.primary }}>Browse Categories</h2>
-              <div style={{ height: 4, width: 80, background: colors.secondary, marginTop: 8 }} />
+              <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: "clamp(24px, 6vw, 32px)", fontWeight: 700, color: colors.primary }}>Browse Categories</h2>
+              <div style={{ height: 4, width: "clamp(60px, 15vw, 80px)", background: colors.secondary, marginTop: 8 }} />
             </div>
-            <Link to="/category/faucets" style={{ fontFamily: "Inter", fontSize: 14, color: colors.primary, textDecoration: "none", display: "flex", alignItems: "center", gap: 4, fontWeight: 500 }}>
+            <Link to="/category/faucets" style={{ fontFamily: "Inter", fontSize: "clamp(12px, 2vw, 14px)", color: colors.primary, textDecoration: "none", display: "flex", alignItems: "center", gap: 4, fontWeight: 500 }}>
               View All Categories <span className="material-symbols-outlined" style={{ fontSize: 18 }}>arrow_forward</span>
             </Link>
           </div>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(260px, 1fr))", gap: 16 }}>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(240px, 1fr))", gap: "clamp(12px, 3vw, 16px)" }}>
             {categories.map(({ name, count, img, path }) => (
               <Link key={name} to={path} className="category-card" style={{ position: "relative", height: 320, borderRadius: 12, overflow: "hidden", display: "block", textDecoration: "none" }}>
                 <img src={img} alt={name} style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover" }} />
@@ -217,10 +211,10 @@ export default function SanitaryPK() {
       </section>
 
       {/* New Arrivals */}
-      <section style={{ background: "rgba(229,226,225,0.3)", padding: "64px 0" }}>
-        <div style={{ maxWidth: 1280, margin: "0 auto", padding: "0 24px" }}>
-          <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: 32, fontWeight: 700, color: colors.primary, textAlign: "center", marginBottom: 64 }}>New Arrivals</h2>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(240px, 1fr))", gap: 24 }}>
+      <section style={{ background: "rgba(229,226,225,0.3)", padding: "clamp(40px, 10vw, 64px) 0" }}>
+        <div style={{ maxWidth: "1280px", margin: "0 auto", padding: "0 clamp(12px, 5vw, 24px)" }}>
+          <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: "clamp(24px, 6vw, 32px)", fontWeight: 700, color: colors.primary, textAlign: "center", marginBottom: "clamp(32px, 8vw, 64px)" }}>New Arrivals</h2>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(220px, 1fr))", gap: "clamp(16px, 3vw, 24px)" }}>
             {products.map(({ brand, name, price, badge, img }) => (
               <div key={name} className="product-card" style={{ background: "#fff", borderRadius: 8, padding: 8, position: "relative" }}>
                 {badge && (
@@ -272,10 +266,10 @@ export default function SanitaryPK() {
       </section>
 
       {/* Why Choose */}
-      <section style={{ padding: "96px 0" }}>
-        <div style={{ maxWidth: 1280, margin: "0 auto", padding: "0 24px" }}>
-          <div style={{ display: "flex", gap: 64, alignItems: "center", flexWrap: "wrap" }}>
-            <div style={{ flex: "1 1 400px", position: "relative" }}>
+      <section style={{ padding: "clamp(60px, 12vw, 96px) 0" }}>
+        <div style={{ maxWidth: "1280px", margin: "0 auto", padding: "0 clamp(12px, 5vw, 24px)" }}>
+          <div style={{ display: "flex", gap: "clamp(32px, 8vw, 64px)", alignItems: "center", flexWrap: "wrap" }}>
+            <div style={{ flex: "1 1 clamp(280px, 100%, 400px)", position: "relative" }}>
               <div style={{ borderRadius: 16, overflow: "hidden", boxShadow: "0 25px 50px -12px rgba(0,0,0,0.25)", aspectRatio: "1/1" }}>
                 <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCY6x7-QgkzTNR4WYM6qFjpkHKx9Htvh1d562lsj4LMuRbcTiDv_TPAQFJd9gw-Vm0JPkP6zRgjpzU9rykoBYmflAiVszZSBTTjx_a31AbyItXm46zO6-S0UXIodE1gsWhGPHfXYlP-_r5v062azaz3Qzpq31KiU2lqUTVOVHGlAMoKiz_iJZrIEPkX9_d05TlNlq0u3d8Zw5oA5ooe_PW5-5QasUc9E7d6Ui1igu8uSsZ2MGKaNbFZ1v1UEAc4aQ_H2s4wte22vVo"
                   alt="Showroom" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
@@ -311,10 +305,10 @@ export default function SanitaryPK() {
       </section>
 
       {/* Reviews */}
-      <section style={{ background: colors.primary, padding: "64px 0" }}>
-        <div style={{ maxWidth: 1280, margin: "0 auto", padding: "0 24px" }}>
-          <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: 32, fontWeight: 700, color: "#fff", textAlign: "center", marginBottom: 64 }}>Words from our Patrons</h2>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(280px, 1fr))", gap: 24 }}>
+      <section style={{ background: colors.primary, padding: "clamp(40px, 10vw, 64px) 0" }}>
+        <div style={{ maxWidth: "1280px", margin: "0 auto", padding: "0 clamp(12px, 5vw, 24px)" }}>
+          <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: "clamp(24px, 6vw, 32px)", fontWeight: 700, color: "#fff", textAlign: "center", marginBottom: "clamp(32px, 8vw, 64px)" }}>Words from our Patrons</h2>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(clamp(240px, 100%, 280px), 1fr))", gap: "clamp(16px, 3vw, 24px)" }}>
             {reviews.map(({ initials, name, role, text }) => (
               <div key={name} style={{ background: "rgba(255,255,255,0.1)", padding: 40, borderRadius: 12, border: "1px solid rgba(255,255,255,0.05)", backdropFilter: "blur(8px)" }}>
                 <div style={{ display: "flex", marginBottom: 16 }}>
@@ -337,16 +331,16 @@ export default function SanitaryPK() {
       </section>
 
       {/* Newsletter */}
-      <section style={{ background: colors.secondary, padding: "64px 0", position: "relative", overflow: "hidden" }}>
-        <div style={{ maxWidth: 1280, margin: "0 auto", padding: "0 24px", display: "flex", flexWrap: "wrap", alignItems: "center", justifyContent: "space-between", gap: 24, position: "relative", zIndex: 1 }}>
+      <section style={{ background: colors.secondary, padding: "clamp(40px, 10vw, 64px) 0", position: "relative", overflow: "hidden" }}>
+        <div style={{ maxWidth: "1280px", margin: "0 auto", padding: "0 clamp(12px, 5vw, 24px)", display: "flex", flexWrap: "wrap", alignItems: "center", justifyContent: "space-between", gap: "clamp(16px, 3vw, 24px)", position: "relative", zIndex: 1 }}>
           <div>
-            <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: 32, fontWeight: 700, color: "#fff" }}>Join Our Design Circle</h2>
-            <p style={{ fontFamily: "Inter", fontSize: 15, color: "rgba(255,255,255,0.9)", marginTop: 8 }}>Get early access to sales, product launches, and luxury bathroom inspiration.</p>
+            <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: "clamp(20px, 5vw, 32px)", fontWeight: 700, color: "#fff" }}>Join Our Design Circle</h2>
+            <p style={{ fontFamily: "Inter", fontSize: "clamp(13px, 2vw, 15px)", color: "rgba(255,255,255,0.9)", marginTop: 8 }}>Get early access to sales, product launches, and luxury bathroom inspiration.</p>
           </div>
-          <div style={{ display: "flex", gap: 8, flexWrap: "wrap" }}>
+          <div style={{ display: "flex", gap: "clamp(6px, 2vw, 8px)", flexWrap: "wrap", minWidth: "100%" }}>
             <input type="email" placeholder="Enter your email" value={email} onChange={e => setEmail(e.target.value)}
-              style={{ padding: "14px 24px", borderRadius: 4, border: "none", fontFamily: "Inter", fontSize: 14, width: 280, color: colors.primary, outline: "none" }} />
-            <button style={{ background: colors.primary, color: "#fff", padding: "14px 24px", border: "none", borderRadius: 4, fontFamily: "Inter", fontSize: 14, fontWeight: 500, cursor: "pointer", transition: "background 0.2s" }}>
+              style={{ padding: "clamp(10px, 2vw, 14px) clamp(14px, 3vw, 24px)", borderRadius: 4, border: "none", fontFamily: "Inter", fontSize: "clamp(12px, 2vw, 14px)", flex: "1 1 clamp(180px, 100%, 280px)", minWidth: "150px", color: colors.primary, outline: "none" }} />
+            <button style={{ background: colors.primary, color: "#fff", padding: "clamp(10px, 2vw, 14px) clamp(14px, 3vw, 24px)", border: "none", borderRadius: 4, fontFamily: "Inter", fontSize: "clamp(12px, 2vw, 14px)", fontWeight: 500, cursor: "pointer", transition: "background 0.2s", whiteSpace: "nowrap" }}>
               Subscribe Now
             </button>
           </div>
@@ -368,7 +362,7 @@ export default function SanitaryPK() {
 
       {/* Footer */}
       <footer style={{ background: colors.footerDark, color: "#fff" }}>
-        <div style={{ maxWidth: 1280, margin: "0 auto", padding: "64px 24px", display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(220px, 1fr))", gap: 24 }}>
+        <div style={{ maxWidth: "1280px", margin: "0 auto", padding: "clamp(32px, 8vw, 64px) clamp(12px, 5vw, 24px)", display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))", gap: "clamp(16px, 3vw, 24px)" }}>
           <div>
             <a href="#" style={{ fontFamily: "'Playfair Display', serif", fontSize: 24, fontWeight: 700, color: "#fff", textDecoration: "none", textTransform: "uppercase", display: "block", marginBottom: 16 }}>Sanitary.pk</a>
             <p style={{ fontFamily: "Inter", fontSize: 12, color: colors.onTertiaryContainer, lineHeight: 1.7, marginBottom: 24 }}>Your trusted partner for high-end architectural hardware and sanitary ware since 1998.</p>
@@ -406,11 +400,10 @@ export default function SanitaryPK() {
             </div>
           </div>
         </div>
-        <div style={{ borderTop: "1px solid rgba(255,255,255,0.05)", padding: "24px", textAlign: "center" }}>
-          <p style={{ fontFamily: "Inter", fontSize: 10, color: "rgba(165,164,161,0.5)" }}>© 2024 Sanitary.pk. All rights reserved. Premium Architectural Hardware.</p>
+        <div style={{ borderTop: "1px solid rgba(255,255,255,0.05)", padding: "clamp(16px, 3vw, 24px)", textAlign: "center" }}>
+          <p style={{ fontFamily: "Inter", fontSize: "clamp(8px, 1.5vw, 10px)", color: "rgba(165,164,161,0.5)" }}>© 2024 Sanitary.pk. All rights reserved. Premium Architectural Hardware.</p>
         </div>
       </footer>
     </>
   );
 }
-

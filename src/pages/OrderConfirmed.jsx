@@ -102,7 +102,7 @@ export default function OrderConfirmed() {
         <div className="flex flex-col sm:flex-row gap-md pt-md max-w-md mx-auto">
           <button
             onClick={() => navigate('/')}
-            className="flex-grow bg-primary text-on-primary py-md font-bold rounded-lg hover:bg-secondary transition-all duration-300 shadow-md cursor-pointer text-sm"
+            className="flex-grow bg-primary text-white py-md font-bold rounded-lg hover:bg-secondary transition-all duration-300 shadow-md cursor-pointer text-sm"
           >
             Continue Shopping
           </button>

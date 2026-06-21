@@ -40,7 +40,7 @@ export default function CartPage() {
           </p>
           <button
             onClick={() => navigate('/')}
-            className="mt-lg bg-primary text-on-primary px-xl py-md rounded-lg font-bold hover:bg-secondary transition-all cursor-pointer shadow-md"
+            className="mt-lg bg-primary text-white px-xl py-md rounded-lg font-bold hover:bg-secondary transition-all cursor-pointer shadow-md"
           >
             Continue Shopping
           </button>
@@ -126,7 +126,7 @@ export default function CartPage() {
 
             <button
               onClick={() => navigate('/')}
-              className="border-2 border-primary text-primary px-lg py-md rounded-lg font-bold hover:bg-primary hover:text-on-primary transition-all duration-300 cursor-pointer text-sm shadow-sm flex items-center gap-xs"
+              className="border-2 border-primary text-primary px-lg py-md rounded-lg font-bold hover:bg-primary hover:text-white transition-all duration-300 cursor-pointer text-sm shadow-sm flex items-center gap-xs"
             >
               <span className="material-symbols-outlined text-[18px]">keyboard_backspace</span> Continue Shopping
             </button>
@@ -165,7 +165,7 @@ export default function CartPage() {
 
             <button
               onClick={() => navigate('/checkout/shipping')}
-              className="w-full bg-primary text-on-primary py-md font-bold rounded-lg hover:bg-secondary transition-all duration-300 flex items-center justify-center gap-sm shadow-md active:scale-95 cursor-pointer text-sm"
+              className="w-full bg-primary text-white py-md font-bold rounded-lg hover:bg-secondary transition-all duration-300 flex items-center justify-center gap-sm shadow-md active:scale-95 cursor-pointer text-sm"
             >
               Proceed to Shipping <span className="material-symbols-outlined text-[18px]">arrow_forward</span>
             </button>

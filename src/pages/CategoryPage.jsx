@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useParams, useNavigate, useSearchParams } from 'react-router-dom';
 import { useCart, productsList } from '../context/CartContext';
+import NotificationModal from '../components/NotificationModal';
 
 export default function CategoryPage() {
   const { categoryId } = useParams();
@@ -14,6 +15,24 @@ export default function CategoryPage() {
   const [selectedBrands, setSelectedBrands] = useState([]);
   const [selectedMaterials, setSelectedMaterials] = useState([]);
   const [sortBy, setSortBy] = useState('featured');
+
+  const [cartModalOpen, setCartModalOpen] = useState(false);
+  const [cartModalMessage, setCartModalMessage] = useState('');
+  const cartTimeoutRef = useRef(null);
+
+  useEffect(() => {
+    return () => {
+      if (cartTimeoutRef.current) clearTimeout(cartTimeoutRef.current);
+    };
+  }, []);
+
+  const closeCartModal = () => {
+    setCartModalOpen(false);
+    if (cartTimeoutRef.current) {
+      clearTimeout(cartTimeoutRef.current);
+      cartTimeoutRef.current = null;
+    }
+  };
 
   // Breadcrumbs title and description
   const categoryMeta = {
@@ -292,7 +311,9 @@ export default function CategoryPage() {
                     <button
                       onClick={() => {
                         addToCart(prod, 1);
-                        alert(`${prod.name} added to cart!`);
+                        setCartModalMessage(`${prod.name} added to your cart.`);
+                        setCartModalOpen(true);
+                        cartTimeoutRef.current = setTimeout(closeCartModal, 2200);
                       }}
                       className="p-2 bg-primary text-white rounded-lg hover:bg-secondary transition-colors duration-200 cursor-pointer shadow-md"
                       title="Add to Cart"
@@ -330,6 +351,12 @@ export default function CategoryPage() {
             </div>
           )}
         </div>
+      <NotificationModal
+        open={cartModalOpen}
+        title="Added to Cart"
+        message={cartModalMessage}
+        onClose={closeCartModal}
+      />
       </div>
     </main>
   );

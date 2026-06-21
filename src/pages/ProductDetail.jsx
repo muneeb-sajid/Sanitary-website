@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { useCart, productsList } from '../context/CartContext';
+import NotificationModal from '../components/NotificationModal';
 
 export default function ProductDetail() {
   const { productSlug } = useParams();
@@ -14,6 +15,23 @@ export default function ProductDetail() {
   const [selectedColor, setSelectedColor] = useState(product.colors ? product.colors[0] : 'Standard');
   const [quantity, setQuantity] = useState(1);
   const [mainImage, setMainImage] = useState(product.image);
+  const [cartModalOpen, setCartModalOpen] = useState(false);
+  const [cartModalMessage, setCartModalMessage] = useState('');
+  const cartTimeoutRef = useRef(null);
+
+  useEffect(() => {
+    return () => {
+      if (cartTimeoutRef.current) clearTimeout(cartTimeoutRef.current);
+    };
+  }, []);
+
+  const closeCartModal = () => {
+    setCartModalOpen(false);
+    if (cartTimeoutRef.current) {
+      clearTimeout(cartTimeoutRef.current);
+      cartTimeoutRef.current = null;
+    }
+  };
 
   // If product thumbnails is empty, use main image
   const gallery = product.thumbnails || [product.image];
@@ -23,7 +41,9 @@ export default function ProductDetail() {
 
   const handleAddToCart = () => {
     addToCart(product, quantity, selectedColor);
-    alert(`${quantity} x ${product.name} (${selectedColor}) added to cart!`);
+    setCartModalMessage(`${quantity} x ${product.name} (${selectedColor}) added to your cart.`);
+    setCartModalOpen(true);
+    cartTimeoutRef.current = setTimeout(closeCartModal, 2200);
   };
 
   const handleBuyNow = () => {
@@ -212,13 +232,13 @@ export default function ProductDetail() {
             <div className="grid grid-cols-2 gap-md mt-sm">
               <button
                 onClick={handleAddToCart}
-                className="bg-primary text-on-primary py-md font-bold rounded-lg hover:bg-secondary transition-all duration-300 flex items-center justify-center gap-sm shadow-md active:scale-95 cursor-pointer text-sm"
+                className="bg-primary text-white py-md font-bold rounded-lg hover:bg-secondary transition-all duration-300 flex items-center justify-center gap-sm shadow-md active:scale-95 cursor-pointer text-sm"
               >
                 <span className="material-symbols-outlined text-xl">shopping_cart</span> Add to Cart
               </button>
               <button
                 onClick={handleBuyNow}
-                className="border-2 border-primary text-primary py-md font-bold rounded-lg hover:bg-primary hover:text-on-primary transition-all duration-300 active:scale-95 cursor-pointer text-sm"
+                className="border-2 border-primary text-primary py-md font-bold rounded-lg hover:bg-primary hover:text-white transition-all duration-300 active:scale-95 cursor-pointer text-sm"
               >
                 Buy Now
               </button>
@@ -340,7 +360,7 @@ export default function ProductDetail() {
                 </h3>
                 <button
                   onClick={() => alert('Write review modal coming soon!')}
-                  className="bg-primary text-on-primary px-lg py-md rounded-lg font-bold hover:bg-secondary transition-all cursor-pointer text-sm shadow-sm"
+                  className="bg-primary text-white px-lg py-md rounded-lg font-bold hover:bg-secondary transition-all cursor-pointer text-sm shadow-sm"
                 >
                   Write a Review
                 </button>

@@ -1,190 +1,12 @@
-import React, { useState, useEffect } from 'react';
-import { Link, useNavigate, useLocation } from 'react-router-dom';
+import React from 'react';
+import { Link } from 'react-router-dom';
 import { useCart } from '../context/CartContext';
 
 export default function Layout({ children }) {
   const { getCartCount } = useCart();
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [isScrolled, setIsScrolled] = useState(false);
-  const navigate = useNavigate();
-  const location = useLocation();
-
-  useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 50) {
-        setIsScrolled(true);
-      } else {
-        setIsScrolled(false);
-      }
-    };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  const navLinks = [
-    { name: 'Faucets', path: '/category/faucets' },
-    { name: 'Showers', path: '/category/showers' },
-    { name: 'Toilets', path: '/category/commodes' },
-    { name: 'Kitchen', path: '/category/kitchen' },
-    { name: 'Accessories', path: '/category/accessories' },
-    { name: 'Brands', path: '/brands' }
-  ];
 
   return (
     <div className="flex flex-col min-h-screen bg-surface font-body-main text-on-surface">
-      {/* Header */}
-      <header
-        className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
-          isScrolled
-            ? 'h-16 bg-surface/95 backdrop-blur-md shadow-md dark:bg-inverse-surface/95'
-            : 'h-20 bg-surface dark:bg-inverse-surface'
-        } flex items-center border-b border-border/30`}
-      >
-        <div className="flex justify-between items-center w-full px-gutter-mobile md:px-gutter-desktop max-w-max-width mx-auto">
-          {/* Logo */}
-          <Link
-            to="/"
-            className="font-display-hero text-display-hero-mobile md:text-2xl lg:text-[32px] text-primary dark:text-primary-fixed-dim uppercase tracking-tight"
-          >
-            Sanitary.pk
-          </Link>
-
-          {/* Desktop Nav */}
-          <nav className="hidden md:flex items-center space-x-md lg:space-x-lg">
-            {navLinks.map((link) => {
-              const isActive = location.pathname === link.path;
-              return (
-                <Link
-                  key={link.name}
-                  to={link.path}
-                  className={`font-nav-link text-nav-link pb-1 transition-all duration-200 ${
-                    isActive
-                      ? 'text-primary dark:text-primary-fixed border-b-2 border-primary dark:border-primary-fixed'
-                      : 'text-on-surface-variant hover:text-primary'
-                  }`}
-                >
-                  {link.name}
-                </Link>
-              );
-            })}
-          </nav>
-
-          {/* Right Header Controls */}
-          <div className="flex items-center space-x-sm md:space-x-md">
-            {/* Search Input (Hidden on mobile) */}
-            <div className="relative hidden lg:block">
-              <input
-                className="bg-surface-container-low border border-border/50 rounded-lg px-md py-1.5 text-ui-small w-60 focus:ring-1 focus:ring-primary focus:border-primary focus:outline-none transition-all duration-300"
-                placeholder="Search premium hardware..."
-                type="text"
-                onKeyDown={(e) => {
-                  if (e.key === 'Enter') {
-                    navigate(`/category/showers?search=${e.target.value}`);
-                  }
-                }}
-              />
-              <span className="material-symbols-outlined absolute right-2 top-1/2 -translate-y-1/2 text-on-surface-variant text-[20px] pointer-events-none">
-                search
-              </span>
-            </div>
-
-            {/* Profile */}
-            <button
-              onClick={() => navigate('/login')}
-              className="p-2 text-on-surface-variant hover:text-primary transition-all duration-300"
-              title="Profile / Account"
-            >
-              <span className="material-symbols-outlined text-[24px]">person</span>
-            </button>
-
-            {/* Cart Icon */}
-            <button
-              onClick={() => navigate('/cart')}
-              className="p-2 text-on-surface-variant hover:text-primary transition-all duration-300 relative"
-              title="Shopping Cart"
-            >
-              <span className="material-symbols-outlined text-[24px]">shopping_cart</span>
-              {getCartCount() > 0 && (
-                <span className="absolute -top-0.5 -right-0.5 bg-secondary text-white text-[10px] rounded-full w-4.5 h-4.5 flex items-center justify-center font-bold animate-pulse">
-                  {getCartCount()}
-                </span>
-              )}
-            </button>
-
-            {/* Burger Menu Button (Mobile Only) */}
-            <button
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="md:hidden p-2 text-on-surface-variant hover:text-primary transition-all duration-300"
-            >
-              <span className="material-symbols-outlined text-[26px]">
-                {mobileMenuOpen ? 'close' : 'menu'}
-              </span>
-            </button>
-          </div>
-        </div>
-      </header>
-
-      {/* Mobile Navigation Drawer */}
-      <div
-        className={`fixed inset-0 z-40 bg-black/50 transition-opacity duration-300 md:hidden ${
-          mobileMenuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
-        }`}
-        onClick={() => setMobileMenuOpen(false)}
-      >
-        <div
-          className={`absolute top-0 right-0 w-64 h-full bg-surface shadow-2xl p-lg flex flex-col space-y-lg transition-transform duration-300 ${
-            mobileMenuOpen ? 'translate-x-0' : 'translate-x-full'
-          }`}
-          onClick={(e) => e.stopPropagation()}
-        >
-          <div className="flex justify-between items-center border-b border-border pb-md mt-md">
-            <span className="font-bold text-primary">Menu</span>
-            <button
-              onClick={() => setMobileMenuOpen(false)}
-              className="text-on-surface-variant"
-            >
-              <span className="material-symbols-outlined">close</span>
-            </button>
-          </div>
-          {/* Mobile Search */}
-          <div className="relative">
-            <input
-              className="bg-surface-container-low border border-border/50 rounded-lg px-md py-sm text-ui-small w-full focus:ring-1 focus:ring-primary focus:outline-none"
-              placeholder="Search..."
-              type="text"
-              onKeyDown={(e) => {
-                if (e.key === 'Enter') {
-                  setMobileMenuOpen(false);
-                  navigate(`/category/showers?search=${e.target.value}`);
-                }
-              }}
-            />
-            <span className="material-symbols-outlined absolute right-2 top-1/2 -translate-y-1/2 text-on-surface-variant text-[20px]">
-              search
-            </span>
-          </div>
-
-          <nav className="flex flex-col space-y-md">
-            {navLinks.map((link) => {
-              const isActive = location.pathname === link.path;
-              return (
-                <Link
-                  key={link.name}
-                  to={link.path}
-                  onClick={() => setMobileMenuOpen(false)}
-                  className={`text-lg font-medium py-sm border-b border-border/10 ${
-                    isActive ? 'text-primary font-bold' : 'text-on-surface-variant'
-                  }`}
-                >
-                  {link.name}
-                </Link>
-              );
-            })}
-          </nav>
-        </div>
-      </div>
-
-      {/* Main Content Spacer */}
       <main className="flex-grow pt-20">
         {children}
       </main>
@@ -236,7 +58,7 @@ export default function Layout({ children }) {
           </div>
 
           <div>
-            <h4 class="font-card-title text-card-title mb-lg text-white font-semibold">Customer Care</h4>
+            <h4 className="font-card-title text-card-title mb-lg text-white font-semibold">Customer Care</h4>
             <ul className="space-y-md text-ui-small">
               <li><a className="text-on-tertiary-container dark:text-on-surface-variant hover:text-secondary-fixed-dim transition-all" href="#">Returns & Exchanges</a></li>
               <li><a className="text-on-tertiary-container dark:text-on-surface-variant hover:text-secondary-fixed-dim transition-all" href="#">FAQs</a></li>
@@ -257,7 +79,7 @@ export default function Layout({ children }) {
               <div
                 className="w-full h-full bg-cover bg-center"
                 style={{
-                  backgroundImage: "url('https://lh3.googleusercontent.com/aida-public/AB6AXuBdIBhbrvcfH0-0uhN7QTBblxq7CKLtTgYWnKkf00KUwVpsRp_uEVWek59e7Eec7Hv3vFfv-bklOGzodwdnhrqJ9orWeZhpdG0dPsVIeVkDVxnRP2FeqvSkK60ZE_fKNopSTfvOgkXp1pjEtJWG2KeLgkJ12DV-rduLacnoB7-9a92m6DNDHeVhkRYlPrAG0lzwx-CCiOGMAPruFzwrmMDO_yd_7iXgtSWZkO2npsu8mrgjqH5xyZEiuYnebqJO5HdO4Z4sw0Cx27k')"
+                  backgroundImage: "url('https://lh3.googleusercontent.com/aida-public/AB6AXuBdIBhbrvcfH0-0uhN7QTBblxq7CKLtTgYWnKkf00KUwVpsRp_uEVWek59e7Eec7Hv3vFfv-bklOGzodwdnhrqJ9orWeZhpdG0dPsVIeVkDVxnRP2FeqvSkK60ZE_fKNopSTfvOgkXp1pjEtJWG2KeLgkJ12DV-rduLacnoB7-9a92m6DNDHeVhkRYlPrAG0lzwx-CCiOGMAPruFzwrmMDO_yd_7iXgtSWZkO2npsu8mrgjqH5xyZEiuYnebqJO5HdO4Z4sw0Cx27k')",
                 }}
               ></div>
             </div>
